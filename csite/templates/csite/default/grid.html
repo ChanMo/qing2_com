@@ -1,0 +1,18 @@
+{% extends "csite/default/base.html" %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+{% load thumbnail %}
+<div class="row">
+    {% for item in child_page %}
+    <div class="small-6 columns" style="margin-top:10px;">
+        {% thumbnail item.image "x400" as im %}
+        <img src="{{ im.url }}" style="width:100%;height:{{ im.y }}">
+        {% endthumbnail %}
+    </div>
+    {% empty %}
+    <div class="small-12 columns">
+        <h1>nothing...</h1>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

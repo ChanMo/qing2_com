@@ -1,0 +1,16 @@
+{% extends "csite/default/base.html" %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+{% load thumbnail %}
+<div class="row">
+  <div class="small-12 columns">
+    {% thumbnail page.image "100" as im %}
+    <img src="{{ im.url }}" style="width:100%;">
+    {% endthumbnail %}
+  </div>
+  <div class="small-12 columns">
+    <span class="page-detail-date">{{ page.created }}</span>
+    <div>{{ page.content|safe }}</div>
+  </div>
+</div>
+{% endblock %}

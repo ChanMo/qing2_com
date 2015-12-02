@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    {% load staticfiles %}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Qing platform</title>
+    <meta name="author" content="Alvaro Trigo Lopez">
+    <meta name="description" content="">
+    <meta name="keywords"  content="">
+    <meta name="Resource-type" content="Document">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'fullpage/jquery.fullPage.css' %}">
+
+    <script src="{% static 'foundation/js/vendor/jquery.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'fullpage/jquery.fullPage.min.js' %}"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+      $('#fullpage').fullpage({
+      sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+      anchors: ['firstPage', 'secondPage', '3rdPage', '4thpage', 'lastPage'],
+      menu: '#menu',
+      css3: true,
+      scrollingSpeed: 1000
+      });
+
+      $('html').click(function(){
+      $('#examplesList').hide();
+      });
+      });
+    </script>
+
+  </head>
+  <body>
+
+    <div id="fullpage" style="text-align:center;">
+
+      <div class="section active" id="section0">
+        <h1>Hello</h1>
+      </div>
+      <div class="section" id="section1">
+        <h2>Do you know...</h2>
+      </div>
+      <div class="section" id="section2">
+        <h2>Who am I ?</h2>
+      </div>
+      <div class="section" id="section3">
+        <h2>You guess :)</h2>
+      </div>
+    </div>
+  </body>
+</html>

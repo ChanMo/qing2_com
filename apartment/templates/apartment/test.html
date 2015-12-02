@@ -1,0 +1,61 @@
+{% extends "csite/default/base.html" %}
+{% block title %}小区数据录入{% endblock %}
+{% block content %}
+<form method="post" action="{% url 'apartment:test' %}">
+  {% csrf_token %}
+  <div class="row">
+    <div class="small-12 columns">
+      <label>经度
+        <input type="text" name="longitude" value="" readonly id="longitude">
+      </label>
+    </div>
+    <div class="small-12 columns">
+      <label>维度
+        <input type="text" name="latitude" value="" readonly id="latitude">
+      </label>
+    </div>
+    <div class="small-12 columns">
+      <label>名称
+        <input type="text" name="name" required>
+      </label>
+    </div>
+    <div class="small-12 columns">
+      <input type="submit" class="button tiny" value="submit">
+    </div>
+  </div>
+</form>
+{% endblock %}
+{% block js %}
+<script>
+  $(function(){
+    getLocation();
+  })
+
+
+function getLocation()
+{
+  if (navigator.geolocation)
+  {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+}
+function showPosition(position)
+{
+  $("#longitude").val(position.coords.longitude);
+  $("#latitude").val(position.coords.latitude);
+  $.ajax({
+    url: 'http://qing.vertore.cn/api/?longitude='+position.coords.longitude+'&latitude='+position.coords.latitude,
+    dataType: 'json',
+    type: 'GET',
+    success: function(data){
+    if(data['code'] != 'success'){
+    alert('not yet');
+    }else{
+    alert(data['data']);
+    }
+    }
+  });
+}
+</script>
+{% endblock %}

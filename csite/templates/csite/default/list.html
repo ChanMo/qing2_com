@@ -1,0 +1,11 @@
+{% extends "csite/default/base.html" %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+<div class="row">
+  {% for item in child_page %}
+  <a href="{% url 'site:page' item.id %}" class="small-12 large-12 columns">
+    {{ item }}
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}
