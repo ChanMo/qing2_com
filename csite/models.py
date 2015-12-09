@@ -10,7 +10,7 @@ from theme.models import Theme, Template
 
 class Site(models.Model):
     name = models.CharField(max_length=200)
-    user = models.ForeignKey(User, related_name='sites')
+    user = models.OneToOneField(User, related_name='site')
     slug = models.CharField(max_length=200)
     theme = models.ForeignKey(Theme, related_name='sites')
     created = models.DateTimeField(auto_now_add=True)

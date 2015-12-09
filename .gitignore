@@ -1,1 +1,7 @@
+# ignore files
 *.pyc
+*.log
+
+media/
+db.sqlite3
+*/migrations/

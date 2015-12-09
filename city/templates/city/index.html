@@ -1,0 +1,16 @@
+<!doctype html>
+<html class="no-js" lang="zh-hans">
+  <head>
+    {% load staticfiles %}
+    <title>Input city demo</title>
+    <link rel="stylesheet" href="{% static 'foundation/stylesheets/city.css' %}">
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+  </head>
+  <body>
+    <form>
+      <input type="city" name="city">
+    </form>
+    <span class="input_city_value">4</span>
+    <script src="{% static 'foundation/js/city.js' %}"></script>
+  </body>
+</html>

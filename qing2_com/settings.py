@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'theme',
     'csite',
     'apartment',
+    'city',
 )
 
 MIDDLEWARE_CLASSES = (
